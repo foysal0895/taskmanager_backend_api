@@ -1,16 +1,26 @@
+# Virtual environment
 venv/
+env/
+ENV/
+
+# Python cache
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
 .Python
-env/
-ENV/
-venv/
+
+# Environment variables
 .env
+
+# IDEs
 .idea/
 .vscode/
+
+# Database
 *.sqlite3
+
+# Logs
 *.log
 
 # MacOS

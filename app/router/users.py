@@ -36,12 +36,13 @@ async def register(
             detail="Email already registered"
         )
 
-    except Exception:
+    except Exception as e:
         await db.rollback()
+        print("ERROR =>", repr(e))
         raise HTTPException(
-            status_code=500,
-            detail="Internal Server Error"
-        )
+        status_code=500,
+        detail=str(e)
+    )
 
     return UserRegisterResponse(
         id=new_user.id,

@@ -3,16 +3,16 @@ services:
     name: taskmanager-api
     env: python
     plan: starter
-    buildCommand: "pip install -r requirements.txt"
-    startCommand: "uvicorn main:app --host 0.0.0.0 --port $PORT"
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
     envVars:
       - key: DATABASE_URL
-        value: "postgresql+asyncpg://postgres:password@localhost:5432/postgres"
+        sync: false
       - key: SECRET_KEY
-        value: "change-me-secret"
+        sync: false
       - key: ALGORITHM
-        value: "HS256"
+        value: HS256
       - key: ACCESS_TOKEN_EXPIRE_MINUTES
-        value: "60"
+        value: 60
       - key: ALEMBIC_DATABASE_URL
-        value: "postgresql://postgres:password@localhost:5432/postgres"
+        sync: false
